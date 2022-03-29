@@ -1,0 +1,130 @@
+<!-- <hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p> -->
+<h1>Text Input on Blue Background</h1>
+<div class="inputcontainer hideunderline">
+  <span style="margin-left: 30px;color:white">Age</span>
+  <div style="margin-left: 30px;">
+    <mat-form-field  floatLabel="never">
+      <mat-label>Enter Age</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </div>
+</div>
+<h4>Default</h4>
+<div class="inputcontainer hideunderline">
+  <span style="margin-left: 30px;color:white">Age</span>
+  <div style="margin-left: 30px;" class="inputValuecolor">
+    <mat-form-field floatLabel="never">
+      <mat-label>Enter Age</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </div>
+</div>
+<h4>Enter</h4>
+<div class="inputcontainer hideunderline">
+  <span style="margin-left: 30px;color:white">Age</span>
+  <div style="margin-left: 30px;" class="disabledmatlabelcolor">
+    <mat-form-field floatLabel="never">
+      <mat-label>Enter Age</mat-label>
+      <input matInput [disabled]="true" />
+    </mat-form-field>
+  </div>
+</div>
+<h4>Disabled</h4>
+  <form>
+    <div class="inputcontainer hideunderline">
+      <span style="margin-left: 30px;color:white">Age</span>
+      <div style="margin-left: 30px;" class="leftborder inputValuecolor" >
+        <mat-form-field floatLabel="never">
+          <mat-label>Enter Age</mat-label>
+          <input matInput [formControl]="FormControl1" />
+          <mat-error style="color:white;display:flex;align-item:center">
+            <i style="font-size:20px;" class="material-icons"
+              >warning_amber</i
+            >
+            Please use numeric charecter only 
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+<h4>Error message</h4>
+<h1>Text Input on white Background</h1>
+  <mat-form-field class="stoprippleffect">
+    <mat-label>First Name</mat-label>
+    <input matInput  />
+  </mat-form-field>
+  <h4>Default</h4>
+  <mat-form-field class="stoprippleffect">
+    <mat-label>First Name</mat-label>
+    <input matInput  value="john Smith"/>
+  </mat-form-field>
+  <h4>Enter </h4>
+  <mat-form-field class="stoprippleffect">
+    <mat-label>First Name</mat-label>
+    <input matInput [disabled]="true" />
+  </mat-form-field>
+  <h4>Disabled</h4>
+
+<form>
+<mat-form-field  [ngClass]="FormControl2.hasError('pattern')?'startrippleffect inputValuecolorforerror errormatlable':'stoprippleffect inputValuecolor'">
+  <mat-label>Age</mat-label>
+  <input matInput [formControl]="FormControl2" />
+  <mat-error *ngIf="FormControl2.hasError('pattern')" style="display:flex;align-item:center">
+    <i style="font-size:20px;" class="material-icons">warning_amber</i>
+    Please use numeric charecter only
+  </mat-error>
+</mat-form-field>
+</form>
+<h4>Error</h4>
+<ngx-otp-input class="pintext"  [config]="otpInputConfig" (otpChange)="handeOtpChange($event)" (fill)="handleFillEvent($event)">
+</ngx-otp-input>
+<h4>Pin Text Input</h4>
+<div *ngFor="let gender of arrGender;let indexOfelement=index;" class="genderbox" [ngClass]="gender.selected  ? 'selectedgenderbox' : 'unselectedgenderbox'" (click)="changeclass(indexOfelement)">{{gender.text}}</div>
+<h4>Gender</h4>
+<mat-form-field class="stoprippleffect">
+  <mat-label>SSN</mat-label>
+  <input matInput [type]="showPassword ? 'text' : 'password'" />
+  <mat-icon matSuffix (click)="togglePasswordVisibility()">
+   {{showPassword?'visibility_off':'visibility'}}
+  </mat-icon>  
+</mat-form-field>
+<h4>Masked/Unmasked Input</h4>
+
+<h4>Enter </h4>
+<h3>Style 1</h3>
+<mat-list role="list">
+  <mat-list-item role="listitem">
+    <i class="material-icons icon-display">circle</i>INDIA
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <i class="material-icons icon-display">circle</i>USA
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <i class="material-icons icon-display">circle</i>GERMANY
+  </mat-list-item>
+</mat-list>
+<h3>Style 2</h3>
+<mat-list role="list">
+  <mat-list-item role="listitem">
+    <i class="material-icons custom-icon-color">done</i>INDIA
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <i class="material-icons custom-icon-color">done</i>USA
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <i class="material-icons custom-icon-color">done</i>GERMANY
+  </mat-list-item>
+</mat-list>
+<section class="example-section">
+  <h4>Select your toppings:</h4>
+  <p class="bluebackground"><mat-checkbox>Blue selected</mat-checkbox></p>
+  <p class="bluecheckmark"><mat-checkbox>Yellow selected</mat-checkbox></p>
+  <p class="crosscheckmark blueborder"><mat-checkbox>Excluded</mat-checkbox></p>
+  <p class="blackcheckmark graybackground">
+    <mat-checkbox [checked]="true">Disabled Checked</mat-checkbox>
+  </p>
+  <p class="blueborder"><mat-checkbox>Blue Not Selected</mat-checkbox></p>
+</section>
